@@ -27,6 +27,7 @@ void print(Node* head);
  */
 void dealloc(Node* head);
 
+//all defintions below this 
 
 Node* readList(const char* filename)
 {
@@ -62,14 +63,21 @@ void dealloc(Node* head)
     }
 }
 
+
 // -----------------------------------------------
 //   Add any helper functions or
 //   function object struct declarations
 // -----------------------------------------------
 
+bool isOdd(int x)
+{
+	return(x % 2 == 1);
+}
 
-
-
+ bool isEven(int x)
+ {
+	 return(x % 2 == 0);
+ }
 
 int main(int argc, char* argv[])
 {
@@ -84,7 +92,23 @@ int main(int argc, char* argv[])
     Node* head = readList(argv[1]);
     cout << "Original list: ";
     print(head);
-
+    cout << endl;
+		head = llfilter(head,isOdd);
+		//head = llfilter(head,isEven);
+		print(head);
+    /*Node* smallest = NULL;
+    Node* largest = NULL;
+    int mid = 10;
+    llpivot(head, smallest, largest, mid);
+    cout << "Smallest list :";
+    print(smallest);
+   cout << endl;
+    cout << "Largest list :";
+    print(largest);
+		oddComp comp;
+		Node* filter = llfilter(head,comp);
+		print(filter);
+		*/
     // Test out your linked list code
 
 
